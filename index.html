@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What Adam does">
+    <title>About Adam - Space Edition</title>
+    <style>
+        /* Global Styles */
+        body {
+            background: linear-gradient(to bottom, #0b0f26, #1a2150); /* Space-like gradient */
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* Ensure background fills screen */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Subtle star pattern */
+        }
+
+        header {
+            background-color: #111530;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            border-bottom: 2px solid #3498db;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            text-shadow: 0 0 10px #3498db, 0 0 20px #2980b9;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #0f1838;
+            padding: 10px 0;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        nav button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-shadow: 0 0 10px #ffffff;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav button:hover {
+            background: #1f8ec9;
+            transform: scale(1.1); /* Slight zoom effect */
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            max-width: 800px;
+            background: rgba(17, 23, 54, 0.9); /* Transparent dark background */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            width: 90%; /* Adjusts for smaller screens */
+        }
+
+        section h2 {
+            font-size: 24px;
+            color: #4ca1ff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px #4ca1ff, 0 0 15px #2980b9;
+        }
+
+        ul, p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        ul li {
+            list-style: none;
+            margin-bottom: 8px;
+        }
+
+        ul li:before {
+            content: "✨ "; /* Adds a sparkle emoji before each list item */
+            color: #f9c922;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            color: #ffffff;
+        }
+
+        table, th, td {
+            border: 1px solid #4ca1ff;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2a3458;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #0f1838;
+            color: #ffffff;
+            margin-top: auto;
+            width: 100%;
+            border-top: 2px solid #3498db;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        footer p span {
+            color: #4ca1ff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to Adam's Space Page</h1>
+    </header>
+
+    <!-- Navigation Buttons -->
+    <nav>
+        <button onclick="showSection('about')">About Me</button>
+        <button onclick="showSection('what')">What I Did</button>
+        <button onclick="showSection('friends')">Friends</button>
+    </nav>
+
+    <!-- Main Content Sections -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! My name is Adam Orogat, and I am in grade 4. I enjoy exploring the stars (and coding)! I also love soccer and swimming. My school is D.R.K., and I'm always dreaming big—just like reaching for the stars.</p>
+    </section>
+
+    <section id="what" style="display: none;">
+        <h2>What I Did</h2>
+        <p>I’m currently working on a Roblox game with my friends Kavyan and Abdu. I’m also starting a YouTube channel to share my adventures, so stay tuned!</p>
+    </section>
+
+    <section id="friends" style="display: none;">
+        <h2>My Friends</h2>
+        <ul>
+            <li>Omar</li>
+            <li>Misha</li>
+            <li>Mostafa</li>
+            <li>Medo</li>
+            <li>And many more awesome people!</li>
+        </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Created with 💫 by <span>Adam</span></p>
+    </footer>
+
+    <!-- JavaScript to Toggle Sections -->
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
