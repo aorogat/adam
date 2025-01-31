@@ -1,170 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login Form | Codehal</title>
+    <title>Login Page</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
+        /* Styling */
         body {
-            background: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #0b0f26;
+            color: white;
         }
 
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width: 100%;
+            margin-top: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .form-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .input-box {
-            margin: 15px 0;
-            position: relative;
-        }
-
-        .input-box input {
-            width: 100%;
+        input {
+            width: 90%;
             padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .input-box input:focus {
-            border-color: #007BFF;
-        }
-
-        .remember-forgot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .remember-forgot label {
-            cursor: pointer;
-        }
-
-        .remember-forgot a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-
-        .remember-forgot a:hover {
-            text-decoration: underline;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
+            margin: 10px 0;
             border: none;
-            color: white;
-            font-size: 16px;
             border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #loginBtn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            transition: background 0.3s;
+            width: 100%;
         }
 
-        .btn:hover {
-            background-color: #0056b3;
+        #loginBtn:hover {
+            background: #1f8ec9;
         }
 
-        .register-link p {
+        /* Loading animation (hidden by default) */
+        #loading {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #4ca1ff;
+        }
+
+        /* Error message */
+        #error {
+            color: red;
             font-size: 14px;
-            color: #666;
-        }
-
-        .register-link a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-        .register-link a:hover {
-            text-decoration: underline;
+            display: none;
         }
     </style>
 </head>
-
 <body>
+
     <div class="container">
-        <div class="form-card">
-            <h1>Login</h1>
-            <form action="" id="logform">
-                <div class="input-box">
-                    <input type="text" id="username" placeholder="Username" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" id="password" placeholder="Password" required>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox"> Remember Me</label>
-                    <a href="forgot_password.html">Forgot Password?</a>
-                </div>
-                <div class="input-box">
-                    <input type="submit" value="Login" class="btn">
-                </div>
-                <div class="register-link">
-                    <p>Don't have an account? <a href="register.html">Register</a></p>
-                </div>
-            </form>
-        </div>
+        <h1>Login</h1>
+        
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        
+        <p id="error">⚠️ Please enter both username and password!</p>
+        
+        <button id="loginBtn" onclick="startLogin()">Login</button>
+        <div id="loading">🔄 Logging in...</div>
     </div>
+
     <script>
-        // Function to handle the form submission
-        document.getElementById('logform').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form from refreshing the page
+        function startLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMsg = document.getElementById("error");
 
-            // Get form input values
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // Basic validation (you can add more)
-            if (username === '' || password === '') {
-                alert('Please fill in all fields');
+            // Check if fields are empty
+            if (username === "" || password === "") {
+                errorMsg.style.display = "block";
                 return;
+            } else {
+                errorMsg.style.display = "none";
             }
 
-            // Save the data to localStorage (for demo purposes)
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
+            // Show loading text
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('loginBtn').disabled = true;
 
-            // Redirect to adam.html after successful registration
-            window.location.href = 'adam.html'; // Make sure adam.html exists
-        });
+            // Simulate loading (e.g., checking credentials)
+            setTimeout(function() {
+                window.location.href = "index.html"; // Redirect to index.html
+            }, 2000); // 2-second delay
+        }
     </script>
-</body>
 
+</body>
 </html>
