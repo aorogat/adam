@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Register | Codehal</title>
+    <title>Register</title>
     <style>
         * {
             margin: 0;
@@ -94,6 +94,12 @@
         .register-link a:hover {
             text-decoration: underline;
         }
+
+        #error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
     </style>
 </head>
 
@@ -111,6 +117,7 @@
                 <div class="input-box">
                     <input type="email" id="email" placeholder="Email" required>
                 </div>
+                <p id="error">⚠️ This username is already taken!</p>
                 <div class="input-box">
                     <input type="submit" value="Register" class="btn">
                 </div>
@@ -122,28 +129,29 @@
     </div>
 
     <script>
-        // Function to handle the form submission
         document.getElementById('registerForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form from refreshing the page
+            event.preventDefault();
 
-            // Get form input values
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const email = document.getElementById('email').value;
+            const errorMsg = document.getElementById('error');
 
-            // Basic validation (you can add more)
-            if (username === '' || password === '' || email === '') {
-                alert('Please fill in all fields');
+            // Get stored users
+            let users = JSON.parse(localStorage.getItem("users")) || {};
+
+            // Check if username exists
+            if (users[username]) {
+                errorMsg.style.display = "block";
                 return;
             }
 
-            // Save the data to localStorage (for demo purposes)
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
-            localStorage.setItem('email', email);
+            // Store new user
+            users[username] = password;
+            localStorage.setItem("users", JSON.stringify(users));
 
-            // Redirect to adam.html after successful registration
-            window.location.href = 'adam.html'; // Make sure adam.html exists
+            // Redirect to login page
+            window.location.href = 'login.html';
         });
     </script>
 </body>
