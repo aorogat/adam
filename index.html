@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Welcome to adam</title>
+    <title>Register | Codehal</title>
     <style>
         * {
             margin: 0;
@@ -15,17 +15,16 @@
         }
 
         body {
-            background: #000;
+            background: black;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             overflow: hidden;
             position: relative;
-            color: #fff;
         }
 
-        /* Starry Background */
+        /* Star Effect */
         .star {
             position: absolute;
             background: white;
@@ -37,52 +36,34 @@
         }
 
         @keyframes twinkle {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .parallax {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://cdn.pixabay.com/photo/2014/10/01/22/42/stars-468578_960_720.jpg') no-repeat center center fixed;
-            background-size: cover;
-            animation: parallaxEffect 30s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes parallaxEffect {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
         }
 
         .container {
+            position: relative;
             z-index: 2;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            height: 100%;
             width: 100%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-card {
+            background: #fff;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
         }
 
         h1 {
-            font-size: 28px;
-            color: #333;
+            font-size: 24px;
             margin-bottom: 20px;
-            text-align: center;
+            color: #333;
         }
 
         .input-box {
@@ -92,22 +73,21 @@
 
         .input-box input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 2px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
             outline: none;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease;
         }
 
         .input-box input:focus {
             border-color: #007BFF;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
         }
 
         .btn {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             background-color: #007BFF;
             border: none;
             color: white;
@@ -124,8 +104,6 @@
         .register-link p {
             font-size: 14px;
             color: #666;
-            margin-top: 10px;
-            text-align: center;
         }
 
         .register-link a {
@@ -135,17 +113,6 @@
 
         .register-link a:hover {
             text-decoration: underline;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
         }
     </style>
 </head>
@@ -175,14 +142,26 @@
         setInterval(createStar, 100); // Create a star every 100ms
     </script>
 
-    <div class="parallax"></div>
-
     <div class="container">
-        <h1>Welcome to Codehal</h1>
-        <p style="text-align:center;">Your one-stop platform for coding solutions and collaboration.</p>
-        <div class="register-link">
-            <p>Don't have an account? <a href="register.html">Register Now</a></p>
-            <p>Already have an account? <a href="login.html">Login</a></p>
+        <div class="form-card">
+            <h1>Register</h1>
+            <form id="registerForm">
+                <div class="input-box">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-box">
+                    <input type="submit" value="Register" class="btn">
+                </div>
+                <div class="register-link">
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+            </form>
         </div>
     </div>
 
