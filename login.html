@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
-        /* Styling */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -48,7 +47,6 @@
             background: #1f8ec9;
         }
 
-        /* Loading animation (hidden by default) */
         #loading {
             display: none;
             margin-top: 10px;
@@ -56,7 +54,6 @@
             color: #4ca1ff;
         }
 
-        /* Error message */
         #error {
             color: red;
             font-size: 14px;
@@ -72,10 +69,11 @@
         <input type="text" id="username" placeholder="Enter Username">
         <input type="password" id="password" placeholder="Enter Password">
         
-        <p id="error">⚠️ Please enter both username and password!</p>
+        <p id="error">⚠️ Invalid username or password!</p>
         
         <button id="loginBtn" onclick="startLogin()">Login</button>
         <div id="loading">🔄 Logging in...</div>
+        <p>Don't have an account? <a href="register.html" style="color: lightblue;">Register</a></p>
     </div>
 
     <script>
@@ -84,22 +82,27 @@
             const password = document.getElementById("password").value;
             const errorMsg = document.getElementById("error");
 
-            // Check if fields are empty
             if (username === "" || password === "") {
+                errorMsg.innerText = "⚠️ Please enter both username and password!";
                 errorMsg.style.display = "block";
                 return;
-            } else {
-                errorMsg.style.display = "none";
             }
 
-            // Show loading text
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('loginBtn').disabled = true;
+            // Retrieve stored users from localStorage
+            const users = JSON.parse(localStorage.getItem("users")) || {};
 
-            // Simulate loading (e.g., checking credentials)
-            setTimeout(function() {
-                window.location.href = "index.html"; // Redirect to index.html
-            }, 2000); // 2-second delay
+            // Check if username exists and password matches
+            if (users[username] && users[username] === password) {
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('loginBtn').disabled = true;
+
+                setTimeout(function () {
+                    window.location.href = "index.html"; // Redirect to index.html
+                }, 2000);
+            } else {
+                errorMsg.innerText = "⚠️ Invalid username or password!";
+                errorMsg.style.display = "block";
+            }
         }
     </script>
 
