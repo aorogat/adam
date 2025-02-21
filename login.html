@@ -78,11 +78,20 @@
             const password = document.getElementById("password").value;
             const errorMsg = document.getElementById("error");
 
+            // Check if username or password is empty
+            if (!username || !password) {
+                errorMsg.innerText = "⚠️ Please fill in both fields.";
+                errorMsg.style.display = "block";
+                return;
+            }
+
             // Get registered users from localStorage
             let users = JSON.parse(localStorage.getItem("users")) || [];
+            console.log("Registered Users:", users); // Debugging: check if users are retrieved correctly
 
             // Check if username & password exist
             const user = users.find(user => user.username === username && user.password === password);
+            console.log("Found User:", user); // Debugging: check if the correct user is found
 
             if (user) {
                 window.location.href = "index.html"; // Redirect if login is successful
