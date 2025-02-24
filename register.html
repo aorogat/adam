@@ -28,7 +28,7 @@
 
     <script>
         function registerUser() {
-            const newUsername = document.getElementById("newUsername").value.trim();
+            const newUsername = document.getElementById("newUsername").value.trim();  // Trim username
             const newPassword = document.getElementById("newPassword").value;
             const errorMsg = document.getElementById("error");
             const successMsg = document.getElementById("success");
@@ -47,8 +47,12 @@
                 return;
             }
 
+            // Save user with trimmed username
             users.push({ username: newUsername, password: newPassword });
             localStorage.setItem("users", JSON.stringify(users));
+
+            console.log("User registered:", { username: newUsername, password: newPassword }); // Debugging log
+            console.log("Updated Users:", users); // Debugging log
 
             successMsg.innerText = "✅ Registration successful! Redirecting to login...";
             successMsg.style.display = "block";
