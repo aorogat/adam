@@ -1,170 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Register | Codehal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="What Adam does">
+        <title>About Adam -  Edition</title>
     <style>
-        * {
+        /* Global Styles */
+            body {
+                background: linear-gradient(to bottom, #0b0f26, #1a2150); /* -like gradient */
+                color: #ffffff;
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                min-height: 100vh; /* Ensure background fills screen */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Subtle star pattern */
+            }
+
+            header {
+                background-color: #111530;
+                color: #ffffff;
+                text-align: center;
+                padding: 20px;
+                width: 100%;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+                border-bottom: 2px solid #3498db;
+            }
+
+        header h1 {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-size: 36px;
+            text-shadow: 0 0 10px #3498db, 0 0 20px #2980b9;
         }
 
-        body {
-            background: black;
+        nav {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Star Effect */
-        .star {
-            position: absolute;
-            background: white;
-            width: 2px;
-            height: 2px;
-            border-radius: 50%;
-            box-shadow: 0 0 5px white;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-
-        .container {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
+            background-color: #0f1838;
+            padding: 10px 0;
             width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
 
-        .form-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .input-box {
-            margin: 15px 0;
-            position: relative;
-        }
-
-        .input-box input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .input-box input:focus {
-            border-color: #007BFF;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            border: none;
+        nav button {
+            background: #3498db;
             color: white;
-            font-size: 16px;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 16px;
+            text-shadow: 0 0 10px #ffffff;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .btn:hover {
-            background-color: #0056b3;
+        nav button:hover {
+            background: #1f8ec9;
+            transform: scale(1.1); /* Slight zoom effect */
         }
 
-        .register-link p {
+        section {
+            padding: 20px;
+            margin: 20px;
+            max-width: 800px;
+            background: rgba(17, 23, 54, 0.9); /* Transparent dark background */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            width: 90%; /* Adjusts for smaller screens */
+        }
+
+        section h2 {
+            font-size: 24px;
+            color: #4ca1ff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px #4ca1ff, 0 0 15px #2980b9;
+        }
+
+        ul, p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        ul li {
+            list-style: none;
+            margin-bottom: 8px;
+        }
+
+        ul li:before {
+            content: "✨ "; /* Adds a sparkle emoji before each list item */
+            color: #f9c922;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            color: #ffffff;
+        }
+
+        table, th, td {
+            border: 1px solid #4ca1ff;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2a3458;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #0f1838;
+            color: #ffffff;
+            margin-top: auto;
+            width: 100%;
+            border-top: 2px solid #3498db;
+        }
+
+        footer p {
+            margin: 0;
             font-size: 14px;
-            color: #666;
         }
 
-        .register-link a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-        .register-link a:hover {
-            text-decoration: underline;
+        footer p span {
+            color: #4ca1ff;
         }
     </style>
 </head>
-
 <body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to Adam's Page</h1>
+    </header>
 
-    <!-- Star Background Effect -->
+    <!-- Navigation Buttons -->
+        <nav>
+            <button onclick="showSection('about')">About Me</button>
+            <button onclick="showSection('what')">What I Did</button>
+            <button onclick="showSection('friends')">Friends</button>
+        </nav>
+
+    <!-- Main Content Sections -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! My name is Adam Orogat, and I am in grade 4. I enjoy 
+            coding. I also love soccer and swimming i like the color blue i like to play 
+                BloxFruits My school is D.R.K i used to live in Egypt my techer
+        <table>
+        <tr>
+            <th>Grade</th>
+            <th>Teacher</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Ms. Quane</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Ms. Nimen</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Mr. V</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Mrs. M</td>
+        </tr>
+    </table></p>
+    </section>
+
+    <section id="what" style="display: none;">
+        <h2>What I Did</h2>
+        <p>I’m currently working on a Roblox game with my friends 
+            and Abdu. I’m also starting a YouTube channel to share my adventures, so stay</p>
+        Abdu. I’m also starting a YouTube channel to share my adventures, so stay</p>
+    </section>
+
+    <section id="friends" style="display: none;">
+        <h2>My Friends</h2>
+        <ul>
+                <li>Omar</li>
+                <li>Misha</li>
+                <li>Mostafa</li>
+                <li>Medo</li>
+            <li>And many more awesome people!</li>
+        </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Created with love by <span>Adam</span></p>
+    </footer>
+
+    <!-- JavaScript to Toggle Sections -->
     <script>
-        function createStar() {
-            const star = document.createElement("div");
-            star.classList.add("star");
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
 
-            let x = Math.random() * window.innerWidth;
-            let y = Math.random() * window.innerHeight;
-            let size = Math.random() * 3 + 1; // Random size (1px - 4px)
-
-            star.style.left = `${x}px`;
-            star.style.top = `${y}px`;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-
-            document.body.appendChild(star);
-
-            setTimeout(() => { star.remove(); }, 3000);
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
         }
-
-        setInterval(createStar, 100); // Create a star every 100ms
     </script>
-
-    <div class="container">
-        <div class="form-card">
-            <h1>Register</h1>
-            <form id="registerForm">
-                <div class="input-box">
-                    <input type="text" id="username" placeholder="Username" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" id="password" placeholder="Password" required>
-                </div>
-                <div class="input-box">
-                    <input type="email" id="email" placeholder="Email" required>
-                </div>
-                <div class="input-box">
-                    <input type="submit" value="Register" class="btn">
-                </div>
-                <div class="register-link">
-                    <p>Already have an account? <a href="login.html">Login</a></p>
-                </div>
-            </form>
-        </div>
-    </div>
-
 </body>
-
 </html>
