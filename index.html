@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="What Adam does">
-        <title>About Adam -  Edition</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What Adam does">
+    <title>About Adam - Edition</title>
     <style>
         /* Global Styles */
-            body {
-                background: linear-gradient(to bottom, #0b0f26, #1a2150); /* -like gradient */
-                color: #ffffff;
-                font-family: 'Arial', sans-serif;
-                margin: 0;
-                padding: 0;
-                min-height: 100vh; /* Ensure background fills screen */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Subtle star pattern */
-            }
+        body {
+            background: linear-gradient(to bottom, #0b0f26, #1a2150); 
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+        }
 
-            header {
-                background-color: #111530;
-                color: #ffffff;
-                text-align: center;
-                padding: 20px;
-                width: 100%;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-                border-bottom: 2px solid #3498db;
-            }
+        header {
+            background-color: #111530;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            border-bottom: 2px solid #3498db;
+        }
 
         header h1 {
             margin: 0;
@@ -60,17 +60,17 @@
 
         nav button:hover {
             background: #1f8ec9;
-            transform: scale(1.1); /* Slight zoom effect */
+            transform: scale(1.1); 
         }
 
         section {
             padding: 20px;
             margin: 20px;
             max-width: 800px;
-            background: rgba(17, 23, 54, 0.9); /* Transparent dark background */
+            background: rgba(17, 23, 54, 0.9); 
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-            width: 90%; /* Adjusts for smaller screens */
+            width: 90%; 
         }
 
         section h2 {
@@ -91,7 +91,7 @@
         }
 
         ul li:before {
-            content: "✨ "; /* Adds a sparkle emoji before each list item */
+            content: "✨ "; 
             color: #f9c922;
         }
 
@@ -138,60 +138,62 @@
 <body>
     <!-- Header Section -->
     <header>
+        <img src="https://raw.githubusercontent.com/aorogat/adam/main/adam.jpg" alt="Adam's photo" style="width: 100px; height: auto; border-radius: 50px;">
         <h1>Welcome to Adam's Page</h1>
     </header>
 
     <!-- Navigation Buttons -->
-        <nav>
-            <button onclick="showSection('about')">About Me</button>
-            <button onclick="showSection('what')">What I Did</button>
-            <button onclick="showSection('friends')">Friends</button>
-        </nav>
+    <nav>
+        <button onclick="showSection('about')">About Me</button>
+        <button onclick="showSection('what')">What I Did</button>
+        <button onclick="showSection('friends')">Friends</button>
+    </nav>
 
     <!-- Main Content Sections -->
+
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello! My name is Adam Orogat, and I am in grade 4. I enjoy 
-            coding. I also love soccer and swimming i like the color blue i like to play 
-                BloxFruits My school is D.R.K i used to live in Egypt my techer
+        <p>Hello! My name is Adam Orogat, and I am in grade 4. I enjoy coding. I also love soccer and swimming. 
+            I like the color blue, and I love playing BloxFruits. My school is D.R.K. I used to live in Egypt.</p>
         <table>
-        <tr>
-            <th>Grade</th>
-            <th>Teacher</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Ms. Quane</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Ms. Nimen</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Mr. V</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Mrs. M</td>
-        </tr>
-    </table></p>
+            <tr>
+                <th>Grade</th>
+                <th>Teacher</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ms. Quane</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ms. Nimen</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Mr. V</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Mrs. M</td>
+            </tr>
+        </table>
     </section>
 
-    <section id="what" style="display: none;">
-        <h2>What I Did</h2>
-        <p>I’m currently working on a Roblox game with my friends 
-            and Abdu. I’m also starting a YouTube channel to share my adventures, so stay</p>
-        Abdu. I’m also starting a YouTube channel to share my adventures, so stay</p>
-    </section>
+        <section id="what" style="display: none;">
+            <h2>What I Did</h2>
+            <p>I’m currently working on a Roblox game with my friends Abdu.
+                I’m also starting a YouTube channel to share my adventures, so stay tuned!</p>
+        </section>
 
     <section id="friends" style="display: none;">
         <h2>My Friends</h2>
         <ul>
                 <li>Omar</li>
                 <li>Misha</li>
-                <li>Mostafa</li>
+                <li>Mustafa</li>
                 <li>Medo</li>
+                <li>Ammen</li>
+                <li>Acer</li>
             <li>And many more awesome people!</li>
         </ul>
     </section>
