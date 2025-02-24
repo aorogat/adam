@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +73,7 @@
 
     <script>
         function startLogin() {
-            const username = document.getElementById("username").value.trim();
+            const username = document.getElementById("username").value.trim();  // Trim username
             const password = document.getElementById("password").value;
             const errorMsg = document.getElementById("error");
 
@@ -87,13 +86,14 @@
 
             // Get registered users from localStorage
             let users = JSON.parse(localStorage.getItem("users")) || [];
-            console.log("Registered Users:", users); // Debugging: check if users are retrieved correctly
+            console.log("Stored Users:", users); // Debugging log
 
-            // Check if username & password exist
+            // Check if username & password match
             const user = users.find(user => user.username === username && user.password === password);
-            console.log("Found User:", user); // Debugging: check if the correct user is found
+            console.log("User Found:", user); // Debugging log
 
             if (user) {
+                alert("✅ Login successful! Redirecting...");
                 window.location.href = "index.html"; // Redirect if login is successful
             } else {
                 errorMsg.innerText = "⚠️ Invalid username or password!";
